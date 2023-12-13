@@ -5,6 +5,8 @@ createApp({
     data(){
         return{
             activeImage: 0,
+            isAutoPlayActive: false,
+            autoplay: null,
              slides: [
                     {
                         image: 'img/01.webp',
@@ -47,8 +49,21 @@ createApp({
         },
         setImg(index){
             this.activeImage = index
+        },
+        startAutoPlay(){
+            this.AutoPlayActive = true;
+            this.autoplay = setInterval(() => {
+                this.nextImg()
+            },3000)
+
+        },
+        stopAutoPlay(){
+            this.isAutoPlayActive = false;
+            clearInterval(this.autoplay);
+            this.autoplay = null;
         }
-    }
+        }
+        
 
 }).mount(`#app`);
 

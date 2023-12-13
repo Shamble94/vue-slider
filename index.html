@@ -14,7 +14,7 @@
     <div id="app">
 
         <div class="container">
-            <div class="slider-wrapper" tabindex="0">
+            <div class="slider-wrapper" @mouseover="stopAutoPlay" @mouseleave="startAutoPlay" tabindex="0">
 
                 <div class="item">
                     <img :src="slides[activeImage].image" :key="index" alt="Spiderman" />
@@ -34,10 +34,14 @@
                     </div>
                    
                 </div>
-
+                <div class="buttons">
+                  <button @click="startAutoPlay" :disabled="isAutoPlayActive"> Start</button>
+                  <button @click="stopAutoPlay">Stop</button>
+        
             </div>
+           
         </div>
-
+       
     </div>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>

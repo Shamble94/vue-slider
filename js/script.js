@@ -44,6 +44,9 @@ createApp({
             }else{
                 this.activeImage--;
             }
+        },
+        setImg(index){
+            this.activeImage = index
         }
     }
 
